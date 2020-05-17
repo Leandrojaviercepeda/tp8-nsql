@@ -1,14 +1,12 @@
 import React from 'react';
-<<<<<<< HEAD
 
-export default function index() {
-    return (
-        <div>
-            Not Implemented!
-=======
-import '../NotFound/css/style.css'
+//************************************* Material-UI Components ****************************************
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
+
+//************************************* Styles ****************************************
+import '../NotFound/css/style.css'
+
 
 export default function index() {
 
@@ -31,7 +29,6 @@ export default function index() {
                     </div>
                 </section>
             </body>
->>>>>>> 573e3932077929028ce788b06921c1caed7b5c93
         </div>
     )
 }

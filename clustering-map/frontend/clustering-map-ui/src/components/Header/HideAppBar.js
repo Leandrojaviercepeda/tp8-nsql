@@ -1,13 +1,10 @@
 import React, { Fragment } from 'react'
 
-//***********************************************************************************************
 //************************************** Props MAteria-UI ***************************************
-//***********************************************************************************************
 import PropTypes from 'prop-types'
 
-//***********************************************************************************************
+
 //************************************ Components MAteria-UI ************************************
-//***********************************************************************************************
 import {
   AppBar,
   Toolbar,
@@ -19,18 +16,15 @@ import {
   Typography
 } from '@material-ui/core'
 
-//***********************************************************************************************
 //************************************** Icons MAteria-UI ***************************************
-//***********************************************************************************************
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import HomeIcon from '@material-ui/icons/Home';
+import InfoIcon from '@material-ui/icons/Info';
 
 
-//***********************************************************************************************
 //****************************************** Styles  ********************************************
-//***********************************************************************************************
 HideOnScroll.propTypes = {
   children: PropTypes.element.isRequired,
   window: PropTypes.func,
@@ -49,9 +43,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-//***********************************************************************************************
 //**************************************** Components *******************************************
-//***********************************************************************************************
 function HideOnScroll(props) {
   const { children, window } = props;
   const trigger = useScrollTrigger({ target: window ? window() : undefined });
@@ -62,6 +54,7 @@ function HideOnScroll(props) {
   );
 }
 
+//********************************************* Components *********************************************
 export default function HideAppBar(props) {
   const classes = useStyles();
 
@@ -91,6 +84,10 @@ export default function HideAppBar(props) {
 
               <IconButton className={classes.menuButton} color="inherit" aria-label="add" href='/restaurant/delete'>
                 <DeleteIcon/>
+              </IconButton>
+
+              <IconButton className={classes.menuButton} color="inherit" aria-label="about" href='https://asmaloney.com/2015/06/code/clustering-markers-on-leaflet-maps/'>
+                <InfoIcon/>
               </IconButton>
 
             </Toolbar>

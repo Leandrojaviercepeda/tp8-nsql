@@ -1,16 +1,13 @@
 import React from 'react';
 
-//***********************************************************************************************
-//************************************* React Components ****************************************
-//***********************************************************************************************
-import Header from '../Header'
-import Map from '../Map'
+//************************************** React Components ******************************************
+import Restaurants from '../Restaurants/Restaurants'
 
 export default function index() {
+
     return (
         <div>
-            <Header/>
-            <Map/>
+            <Restaurants/>
         </div>
     )
 }
