@@ -32,7 +32,7 @@ def save():
 def flush():
     return db_clustering_map.restaurants.remove()
 
-def distinct(string):
+def distinct(field):
     attributes = []
-    attributes = list(db_clustering_map.restaurants.distinct(string))
+    attributes = list(db_clustering_map.restaurants.distinct(field))
     return attributes

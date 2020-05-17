@@ -37,11 +37,10 @@ def restaurant_abm():
     except:
         raise
 
-@app.route('/elements', methods=['GET'])
-def elements():
+@app.route('/restaurants/<field>')
+def filter_restaurants(field):
     try:
-        if request.method == 'GET':
-            return jsonify(Restaurants.distinct(request.args["atributte"]))
+        return jsonify(Restaurants.distinct(field))
     except:
         raise
 
