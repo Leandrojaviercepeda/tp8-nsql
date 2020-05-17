@@ -1,30 +1,18 @@
 import React,{useState, useEffect} from 'react';
-<<<<<<< Updated upstream
 
 //************************************ Components Materia-UI ************************************
-=======
-import {ClusteringMapUrlBase} from '../../../utils/constants'
-import capitalize from '../../../utils/capitalize'
-import image from '../../../utils/images/newRestaurant.png'
-import axios from 'axios'
-//***********************************************************************************************
-//************************************ Components MAteria-UI ************************************
-//***********************************************************************************************
->>>>>>> Stashed changes
 import { Grid, Paper, makeStyles, TextField, Typography, Button } from '@material-ui/core';
-import { Autocomplete } from '@material-ui/lab';
+import { Autocomplete, Alert } from '@material-ui/lab';
 
 //************************************** Icons MAteria-UI ***************************************
 import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 import AddLocationIcon from '@material-ui/icons/AddLocation';
-<<<<<<< Updated upstream
 
 //******************************************** API *********************************************
 import {ClusteringMapUrlBase} from '../../../utils/constants'
+import capitalize from '../../../utils/capitalize'
+import image from '../../../utils/images/newRestaurant.png'
 import axios from 'axios'
-=======
-import { Autocomplete, Alert } from '@material-ui/lab';
->>>>>>> Stashed changes
 
 const useStyles = makeStyles((theme) => ({
     root: {
