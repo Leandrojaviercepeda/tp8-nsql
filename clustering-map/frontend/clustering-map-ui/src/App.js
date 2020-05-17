@@ -17,7 +17,7 @@ function App() {
       <Route exact path='/home' component={Home}/>
       <Route exact path='/restaurant/new' component={NewRestaurant}/>
       <Route exact path='/restaurant/delete' component={DeleteRestaurant}/>
-      <Route exact path='/restaurant/edit' component={ModifyRestaurant}/>
+      <Route exact path='/restaurant/:_id/edit' component={ModifyRestaurant}/>
       <Route exact path='/restaurant/:_id' component={Restaurant}/>
       <Route component={NotFound} />
     </Switch>

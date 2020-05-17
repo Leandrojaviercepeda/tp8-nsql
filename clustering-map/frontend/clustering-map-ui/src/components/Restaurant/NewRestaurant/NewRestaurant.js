@@ -169,7 +169,7 @@ export default function NewRestaurant() {
                             id="combo-box-demo"
                             options={specialties}
                             style={{ width: 300 }}
-                            onChange={(e,v) => handleCuisine(capitalize(v))}
+                            onChange={(e,v) => handleCuisine(v!==null ? capitalize(v) : null)}
                             renderInput={(params) => <TextField {...params} type="text" onChange={e => handleCuisine(capitalize(e.target.value))} required id="standard-basic" label="Especialidad"/>}
                           />
                         </Grid>
