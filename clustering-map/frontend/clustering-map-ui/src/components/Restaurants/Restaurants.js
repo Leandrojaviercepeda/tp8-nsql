@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 //************************************** React Components ******************************************
 import Header from '../Header'
 import RestaurantsMap from '../Restaurant/RestaurantsMap/RestaurantsMap'
-import RestaurantCategorySelector from '../Restaurant/RestaurantCategorySelector/RestaurantCategorySelector'
+import RestaurantCategorySelector from '../Restaurant/RestaurantCategorySelector'
 
 //********************************************* Components *********************************************
 export default function Restaurants() {

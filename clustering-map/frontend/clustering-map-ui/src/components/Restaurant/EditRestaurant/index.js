@@ -4,11 +4,11 @@ import React from 'react';
 import Header from '../../Header';
 import EditRestaurant from './EditRestaurant'
 
-export default function index() {
+export default function index(props) {
     return (
         <div>
             <Header/>
-            <EditRestaurant/>
+            <EditRestaurant props={props}/>
         </div>
     )
 }

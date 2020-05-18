@@ -3,7 +3,6 @@ import React, { Fragment } from 'react'
 //************************************** Props MAteria-UI ***************************************
 import PropTypes from 'prop-types'
 
-
 //************************************ Components MAteria-UI ************************************
 import {
   AppBar,
@@ -18,11 +17,8 @@ import {
 
 //************************************** Icons MAteria-UI ***************************************
 import AddIcon from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
 import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
-
 
 //****************************************** Styles  ********************************************
 HideOnScroll.propTypes = {
@@ -41,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   }
 }));
-
 
 //**************************************** Components *******************************************
 function HideOnScroll(props) {
@@ -76,14 +71,6 @@ export default function HideAppBar(props) {
 
               <IconButton className={classes.menuButton} color="inherit" aria-label="add" href='/restaurant/new'>
                 <AddIcon/>
-              </IconButton>
-
-              <IconButton className={classes.menuButton} color="inherit" aria-label="add" href='/restaurant/edit'>
-                <EditIcon/>
-              </IconButton>
-
-              <IconButton className={classes.menuButton} color="inherit" aria-label="add" href='/restaurant/delete'>
-                <DeleteIcon/>
               </IconButton>
 
               <IconButton className={classes.menuButton} color="inherit" aria-label="about" href='https://asmaloney.com/2015/06/code/clustering-markers-on-leaflet-maps/'>
