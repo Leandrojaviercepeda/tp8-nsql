@@ -1,8 +1,8 @@
 FROM python:latest
 
-WORKDIR /
-COPY . ./api
-ENV FLASK_APP api/src/app.py
+WORKDIR /backend/api
+COPY . ./backend/api
+ENV FLASK_APP /backend/api/src/app.py
 ENV FLASK_RUN_HOST api
 ENV FLASK_DEBUG 1
 ENV FLASK_RUN_PORT 5000

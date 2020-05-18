@@ -3,7 +3,9 @@ services:
     api:
         build: ./backend/api
         container_name: 'api-clustering-map'
-        command: sh -c 'pip3 install -r api/requirements.txt; flask run'
+        command: sh -c '
+            pip3 install -r /backend/api/requirements.txt;
+            flask run'
         ports: 
             - '5000:5000'
         volumes:
@@ -18,7 +20,7 @@ services:
             - '27017:27017'
 
     frontend:
-        build: ./frontend
+        build: ./frontend/clustering-map-ui
         container_name: 'clustering-map-ui'
         command: sh -c 'npm install; npm start'
         ports:
