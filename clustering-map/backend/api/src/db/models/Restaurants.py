@@ -18,6 +18,8 @@ def get(dictionary):
     restaurants = []
     if '_id' in dictionary:
         restaurants = list(db_clustering_map.restaurants.find({"_id": ObjectId(dictionary["_id"])}))
+    elif 'lastElement' in dictionary:
+        restaurants = list(db_clustering_map.restaurants.find({}).limit(1).sort([(dictionary["lastElement"],-1)]))
     else:
         restaurants = list(db_clustering_map.restaurants.find(dictionary))
 

@@ -73,7 +73,7 @@ export default function HideAppBar(props) {
                 <AddIcon/>
               </IconButton>
 
-              <IconButton className={classes.menuButton} color="inherit" aria-label="about" href='https://asmaloney.com/2015/06/code/clustering-markers-on-leaflet-maps/'>
+              <IconButton className={classes.menuButton} color="inherit" aria-label="about" href='/about'>
                 <InfoIcon/>
               </IconButton>
 

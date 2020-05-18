@@ -7,6 +7,7 @@ import NewRestaurant from './components/Restaurant/NewRestaurant'
 import ModifyRestaurant from './components/Restaurant/EditRestaurant'
 import DeleteRestaurant from './components/Restaurant/DeleteRestaurant'
 import NotFound from './components/NotFound'
+import About from './components/About'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     <Switch>
       <Route exact path='/' render={ () => <Redirect to='/home' component={Home}/>} />
       <Route exact path='/home' component={Home}/>
+      <Route exact path='/about' component={About}/>
       <Route exact path='/restaurant/new' component={NewRestaurant}/>
       <Route exact path='/restaurant/:_id/edit' component={ModifyRestaurant}/>
       <Route exact path='/restaurant/:_id/delete' component={DeleteRestaurant}/>

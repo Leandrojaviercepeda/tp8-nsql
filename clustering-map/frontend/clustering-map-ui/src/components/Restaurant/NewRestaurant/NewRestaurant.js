@@ -72,6 +72,20 @@ export default function NewRestaurant() {
     const handleSpecialties = specialty => setSpecialties(specialty)
 
     useEffect(() => {
+      const fetchLastId = async () => {
+        try{
+            let lastIdFetched = await axios.get(`${ClusteringMapUrlBase}/restaurants?lastElement=restaurant_id`)
+            return lastIdFetched.data 
+                ? handleRestaurant_id(String(parseInt(lastIdFetched.data[0].restaurant_id)+1)) 
+                : handleStatus(true, 'error', 'No hay ultimo id para mostrar')
+        } catch (error) {
+            handleStatus(true, 'error' ,'Ooops! Ha ocurrido un error :(')
+        }
+    }
+    fetchLastId()
+  }, [restaurant.restaurant_id]);
+
+    useEffect(() => {
       const fetchSpecialties = async () => {
           try{
               const specialtiesFetched = await axios.get(`${ClusteringMapUrlBase}/restaurants/cuisine`)
@@ -110,7 +124,8 @@ export default function NewRestaurant() {
             .then(setInterval(() => handleStatus(false), 5000))
             .then(handleRestDefault(restaurantDefault))    
             .then(handleLatitude(''))
-            .then(handleLongitude(''))        
+            .then(handleLongitude(''))    
+
     } catch (error) {
         handleStatus(true, 'error', '¡Ooops, ha ocurrido un error!')
     }
@@ -136,7 +151,7 @@ export default function NewRestaurant() {
                   <h1><RestaurantMenuIcon/> &bull; AÑADIR RESTAURANT &bull; <RestaurantMenuIcon/></h1>
                       
                   {
-                    specialties
+                    specialties && restaurant.restaurant_id
                     ?
 
                     <form onSubmit={handleSubmit}>
@@ -156,6 +171,8 @@ export default function NewRestaurant() {
                           <TextField
                             type="number"
                             required
+                            disabled
+                            value={restaurant.restaurant_id}
                             id="id"
                             name="id"
                             label="id"
