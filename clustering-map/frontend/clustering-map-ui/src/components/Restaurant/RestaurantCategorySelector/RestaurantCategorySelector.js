@@ -54,33 +54,36 @@ export default function RestaurantCategorySelector(props) {
 
     return (
         <div className={classes.root}>
-        <Grid container justify="space-around" align="center" spacing={3}>
-            <Grid item xs sm={3}>
-                <Tooltip title="Seleccione una campo para filtrar por categoría">
-                <Autocomplete
-                    id="combo-box-fields"
-                    options={fields}
-                    renderInput={(params) => <TextField {...params} required id="standard-basic" label="Campo"/>}
-                    onSelect={e => props.handleField(e.target.value)}
-                />
-                </Tooltip>
+        
+        <Paper elevation={5}  className={classes.paper}>
+            <Grid container justify="space-around" align="center" spacing={3}>
+                <Grid item xs sm={3}>
+                    <Tooltip title="Seleccione una campo para filtrar por categoría">
+                    <Autocomplete
+                        id="combo-box-fields"
+                        options={fields}
+                        renderInput={(params) => <TextField {...params} required id="standard-basic" label="Campo"/>}
+                        onSelect={e => props.handleField(e.target.value)}
+                    />
+                    </Tooltip>
+                </Grid>
+                <Grid item xs sm={3}>
+                    <Tooltip title="Seleccione una categoria">
+                    <Autocomplete
+                        id="combo-box-category"
+                        options={categories}
+                        renderInput={(params) => <TextField {...params} required id="standard-basic" label="Categoria"/>}
+                        onSelect={e => props.handleCategory(e.target.value)}
+                    />
+                    </Tooltip>
+                    {
+                        status.showMessage 
+                        ? <Alert severity={status.type}>Oooops! — {status.message}</Alert>
+                        : ''
+                    }
+                </Grid>
             </Grid>
-            <Grid item xs sm={3}>
-                <Tooltip title="Seleccione una categoria">
-                <Autocomplete
-                    id="combo-box-category"
-                    options={categories}
-                    renderInput={(params) => <TextField {...params} required id="standard-basic" label="Categoria"/>}
-                    onSelect={e => props.handleCategory(e.target.value)}
-                />
-                </Tooltip>
-                {
-                    status.showMessage 
-                    ? <Alert severity={status.type}>Oooops! — {status.message}</Alert>
-                    : ''
-                }
-            </Grid>
-        </Grid>
+        </Paper>
         </div>
     )
 }
