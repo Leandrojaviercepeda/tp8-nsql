@@ -92,7 +92,7 @@ export default function EditRestaurant(props) {
             }
         }
         fetchRestaurant(_id)
-    }, []);
+    }, [_id]);
 
     const handleSubmit = async e => {
         try {

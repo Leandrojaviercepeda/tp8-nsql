@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useCallback} from 'react';
 
 //************************************ Components Materia-UI ************************************
 import { Grid, Paper, makeStyles, TextField, Typography, Button } from '@material-ui/core';
@@ -53,7 +53,7 @@ export default function NewRestaurant() {
     const handleBorough = borough => setRestaurant({...restaurant, borough:borough})
     const handleCuisine = cuisine => setRestaurant({...restaurant, cuisine: cuisine})
     const handleName = name => setRestaurant({...restaurant, name: name})
-    const handleRestaurant_id = restaurant_id => setRestaurant({...restaurant, restaurant_id:restaurant_id})
+    const handleRestaurant_id = useCallback(restaurant_id => setRestaurant({...restaurant, restaurant_id:restaurant_id}), [restaurant])
     const handleBuilding = building => setRestaurant({...restaurant, address: {...restaurant.address, building}})
     const handleStreet = street => setRestaurant({...restaurant, address: {...restaurant.address, street}})
     const handleZipcode = zipcode => setRestaurant({...restaurant, address: {...restaurant.address, zipcode}})
@@ -71,25 +71,25 @@ export default function NewRestaurant() {
     const [specialties, setSpecialties] = useState('')
     const handleSpecialties = specialty => setSpecialties(specialty)
 
-    useEffect(() => {
+    useEffect(() => {     
       const fetchLastId = async () => {
         try{
             let lastIdFetched = await axios.get(`${ClusteringMapUrlBase}/restaurants?lastElement=restaurant_id`)
-            return lastIdFetched.data 
-                ? handleRestaurant_id(String(parseInt(lastIdFetched.data[0].restaurant_id)+1)) 
-                : handleStatus(true, 'error', 'No hay ultimo id para mostrar')
+            return String(parseInt(lastIdFetched.data[0].restaurant_id)+1)
         } catch (error) {
             handleStatus(true, 'error' ,'Ooops! Ha ocurrido un error :(')
         }
     }
-    fetchLastId()
-  }, [restaurant.restaurant_id]);
+    if (restaurant.restaurant_id === '')
+      fetchLastId().then(id => handleRestaurant_id(id))
+
+  }, [restaurant.restaurant_id, handleRestaurant_id]);
 
     useEffect(() => {
       const fetchSpecialties = async () => {
           try{
               const specialtiesFetched = await axios.get(`${ClusteringMapUrlBase}/restaurants/cuisine`)
-              return specialtiesFetched.data 
+              return specialtiesFetched.data
                   ? handleSpecialties(specialtiesFetched.data) 
                   : handleStatus(true, 'error', 'No hay especialidades para mostrar')
           } catch (error) {
