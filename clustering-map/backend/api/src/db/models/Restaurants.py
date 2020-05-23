@@ -1,4 +1,4 @@
-from ..mongo import db_clustering_map
+from ..database import db_clustering_map
 from bson import ObjectId
 from .data.restaurants import collection
 
