@@ -1,7 +1,8 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
+import os
 
-firebase_credential_path = 'db/credentials/firebase.json'
+firebase_credential_path = os.path.abspath('src/db/credentials/firebase.json')
 
 def connectionDB(firebase_credential):
     try:
